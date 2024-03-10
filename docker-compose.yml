@@ -1,0 +1,36 @@
+version: "1"
+services:
+  cosmoport1:
+    image: hub.66bit.ru/shared/images/devops-practice:latest
+    environment:
+      - ASP_INSTANCE_NAME=port1
+    ports:
+      - "8001:80"
+    
+  cosmoport2:
+    image: hub.66bit.ru/shared/images/devops-practice:latest
+    environment:
+      - ASP_INSTANCE_NAME=port2
+    ports:
+      - "8002:80"
+    
+  cosmoport3:
+    image: hub.66bit.ru/shared/images/devops-practice:latest
+    environment:
+      - ASP_INSTANCE_NAME=port3
+    ports:
+      - "8003:80"
+    
+  cosmoport4:
+    image: hub.66bit.ru/shared/images/devops-practice:latest
+    environment:
+      - ASP_INSTANCE_NAME=port4
+    ports:
+      - "8004:80"
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "8000:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
